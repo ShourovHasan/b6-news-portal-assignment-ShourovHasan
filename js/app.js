@@ -1,11 +1,10 @@
-const loadNewsCategories = async (category_id) => {
+const loadNewsCategories = async (category_id, categoryName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-
     try {
         const res = await fetch(url);
         const data = await res.json();
         console.log(data.data);
-        displayNewsCategories(data.data);
+        displayNewsCategories(data.data, categoryName);
     }
     catch (error) {
         // document.getElementById("error_fetch").innerHTML = error.message;
@@ -13,13 +12,23 @@ const loadNewsCategories = async (category_id) => {
     }
 
 }
-const displayNewsCategories = (categories) => {
+const displayNewsCategories = (categories, categoryName) => {
     const categoriesContainer = document.getElementById('show_news');
     categoriesContainer.innerHTML = '';
-
     // Sort By viewers of news 
     categories = categories.sort((a, b) => b.total_view - a.total_view);
 
+    // Count numbers of categories
+    const countCategories = document.getElementById('category_found_id');
+    // countCategories.innerHTML = '';
+    if (categories.length > 0) {
+        countCategories.innerHTML = `
+        <h2>${categories.length} items found for category ${categoryName}</h2>`;       
+    }
+    else {
+        countCategories.innerHTML = `
+        <h2>No News Found for category ${categoryName}</h2>`;
+    }
 
     categories.forEach(category => {
         const div = document.createElement('div');
@@ -65,8 +74,11 @@ const displayNewsCategories = (categories) => {
         `;
         categoriesContainer.appendChild(div);
     })
+    toggleSpinner(false);
 }
+// loadNewsDetails
 const loadNewsDetails = async (news_id) => {
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -105,7 +117,7 @@ const displayNewsDetails = newsInfo => {
             </div>                            
         </div>
     `;
-
+    toggleSpinner(false);
 }
 
 
@@ -123,38 +135,65 @@ const displayNewsDetails = newsInfo => {
 // }
 
 
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('spinner_control');
 
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
 
 
 
 
 // news Show from nav Menu 
-document.getElementById('home_id').addEventListener('click', function(){
-    loadNewsCategories('08');
+document.getElementById('home_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText;    
+    loadNewsCategories('08', categoryName);
 })
-document.getElementById('breaking_news_id').addEventListener('click', function(){
-    loadNewsCategories('01');
+document.getElementById('breaking_news_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('01', categoryName);
 })
-document.getElementById('regular_news_id').addEventListener('click', function(){
-    loadNewsCategories('02');
+document.getElementById('regular_news_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('02', categoryName);
 })
-document.getElementById('international_id').addEventListener('click', function(){
-    loadNewsCategories('03');
+document.getElementById('international_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('03', categoryName);
 })
-document.getElementById('sports_id').addEventListener('click', function(){
-    loadNewsCategories('04');
+document.getElementById('sports_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('04', categoryName);
 })
-document.getElementById('entertainment_id').addEventListener('click', function(){
-    loadNewsCategories('05');
+document.getElementById('entertainment_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('05', categoryName);
 })
-document.getElementById('culture_id').addEventListener('click', function(){
-    loadNewsCategories('06');
+document.getElementById('culture_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('06', categoryName);
 })
-document.getElementById('arts_id').addEventListener('click', function(){
-    loadNewsCategories('07');
+document.getElementById('arts_id').addEventListener('click', function(e){
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('07', categoryName);
 })
-document.getElementById('all_news_id').addEventListener('click', function(){
-    loadNewsCategories('08');
+document.getElementById('all_news_id').addEventListener('click', function (e) {
+    toggleSpinner(true);
+    const categoryName = e.target.innerText; 
+    loadNewsCategories('08', categoryName);
 })
-loadNewsCategories('08');
+// loadNewsCategories('08');
 

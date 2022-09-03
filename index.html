@@ -87,6 +87,12 @@
         <!-- Navbar Menu End -->
     </header>
     <main class="my-5 container">
+        <!-- Found numbers of categories  -->
+        <section>
+            <div id="category_found_id">
+                
+            </div>
+        </section>
         <!-- show control start  -->
         <section class="my-5">
             <nav class="navbar navbar-light mt-0 pt-0 d-flex justify-content-between">
@@ -97,9 +103,6 @@
                             aria-expanded="false">
                             Default
                         </button>
-                        <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Default</a></li>
-                        </ul> -->
                     </div>
                 </div>
                 <div class="control_right">
@@ -117,7 +120,13 @@
             <div id="show_news">
                 
             </div>
-            <div>
+            <div id="spinner_control" style="height: 200px;"
+                class="d-flex justify-content-center mt-5 align-items-center d-none">
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="modal_news_info">
                 <!-- Modal -->
                 <div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="newsDetailModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -127,8 +136,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div id="modal_Body" class="modal-body">
-                                
-                
+                                                
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
