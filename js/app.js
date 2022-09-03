@@ -33,7 +33,7 @@ const displayNewsCategories = (categories) => {
             <div class="col-md-8 col-lg-8">
                 <div class="card-body">
                     <h5 class="card-title">${category.title ? category.title : 'News Title Not Found'}</h5>
-                    <p id="new_details_id" class="card-text">${category.details ? category.details : 'News Details Not Found'}</p>
+                    <p class="card-text">${category.details ? category.details : 'News Details Not Found'}</p>
                     <div class="d-flex justify-content-between">
                         <div class="bloger_info d-flex" style="width:35%">
                             <div class="my-auto w-50">
@@ -55,8 +55,8 @@ const displayNewsCategories = (categories) => {
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <div class="my-auto h4 fw-bolder text-primary">
-                            <i class="fa fa-arrow-right"></i>
+                        <div class="my-auto h4 fw-bolder text-primary">                            
+                            <span onclick = "loadNewsDetails('${category._id}')" data-bs-toggle="modal" data-bs-target="#newsDetailModal"><i class="fa fa-arrow-right"></i></span>
                         </div>
                     </div>                            
                 </div>
@@ -66,6 +66,38 @@ const displayNewsCategories = (categories) => {
         categoriesContainer.appendChild(div);
     })
 }
+const loadNewsDetails = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayNewsDetails(data.data[0]);
+}
+const displayNewsDetails = newsInfo => {
+    console.log(newsInfo);
+    // const modalTitle = document.getElementById('phoneDetailModalLabel');
+    // modalTitle.innerText = phoneInfo.name;
+
+    // const phoneDetails = document.getElementById('modal_Body');
+    // phoneDetails.innerHTML = `
+    //     <p>Release Date: ${phoneInfo.releaseDate ? phoneInfo.releaseDate : 'No Released Date Found'}</p>
+    //     <p>Release Date: ${phoneInfo.mainFeatures.displaySize ? phoneInfo.mainFeatures.displaySize : 'No displaySize Found'}</p>
+    // `;
+
+}
+
+
+// const someFunction = (news_sort_details)=>{
+//     const para = document.getElementsByClassName("news_sort_details")[0];
+//     const text = para.innerHTML;
+//     console.log(text);
+//     // para.innerHTML = "";
+//     // const words = text.split(" ");
+//     // // if()
+//     // for (i = 0; i < 50; i++) {
+//     //     para.innerHTML += words[i] + " ";
+//     // }
+//     // para.innerHTML += "...";    
+// }
 
 
 
