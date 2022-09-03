@@ -32,7 +32,7 @@ const displayNewsCategories = (categories) => {
             </div>
             <div class="col-md-8 col-lg-8">
                 <div class="card-body">
-                    <h5 class="card-title">${category.title ? category.title : 'News Title Not Found'}</h5>
+                    <h5 class="card-title  text-capitalize">${category.title ? category.title : 'News Title Not Found'}</h5>
                     <p class="card-text">${category.details ? category.details : 'News Details Not Found'}</p>
                     <div class="d-flex justify-content-between">
                         <div class="bloger_info d-flex" style="width:35%">
@@ -74,14 +74,37 @@ const loadNewsDetails = async (news_id) => {
 }
 const displayNewsDetails = newsInfo => {
     console.log(newsInfo);
-    // const modalTitle = document.getElementById('phoneDetailModalLabel');
-    // modalTitle.innerText = phoneInfo.name;
+    const modalTitle = document.getElementById('newsDetailModalLabel');
+    modalTitle.innerText = newsInfo.title;
 
-    // const phoneDetails = document.getElementById('modal_Body');
-    // phoneDetails.innerHTML = `
-    //     <p>Release Date: ${phoneInfo.releaseDate ? phoneInfo.releaseDate : 'No Released Date Found'}</p>
-    //     <p>Release Date: ${phoneInfo.mainFeatures.displaySize ? phoneInfo.mainFeatures.displaySize : 'No displaySize Found'}</p>
-    // `;
+    const newsDetails = document.getElementById('modal_Body');    
+    newsDetails.innerHTML = `
+        <div class="card-body">     
+            <img src="${newsInfo.image_url ? newsInfo.image_url : 'Image Not Found'}" class="img-fluid h-100 rounded  p-3" alt="...">       
+            <p class="card-text">${newsInfo.details ? newsInfo.details : 'News Details Not Found'}</p>
+            <div class="w-100 d-flex justify-content-between">
+                <div class="bloger_info d-flex w-50">
+                    <div class="my-auto w-25">
+                        <img class="w-100 rounded-circle d-inline-block me-0 pe-0" src="${newsInfo.author.img ? newsInfo.author.img : 'Author Image Not Found'}" alt="">
+                    </div>
+                    <div class="ps-2 my-auto">
+                        <p class="m-0 p-0">${newsInfo.author.name ? newsInfo.author.name : 'Author Name Not Found'}</p>
+                        <p class="text-black-50 m-0 p-0">${newsInfo.author.published_date ? newsInfo.author.published_date : 'Published Date Not Found'}</p>
+                    </div>
+                </div>
+                <div class="my-auto w-25">
+                    <i class="fa fa-eye"></i>
+                    <span class="fw-bolder h5">${newsInfo.total_view ? newsInfo.total_view : 'News View Not Found'}</span>
+                </div>
+                <div class="my-auto w-25">
+                    <span>${newsInfo.rating.badge ? newsInfo.rating.badge : 'News badge Not Found'}</span>
+                </div>
+                <div class="my-auto w-25">
+                    <span class="fw-bolder">${newsInfo.rating.number ? newsInfo.rating.number : 'News Rating Not Found'}</span>
+                </div>
+            </div>                            
+        </div>
+    `;
 
 }
 
