@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome ICon -->
+    <script src="https://kit.fontawesome.com/3b86664ced.js" crossorigin="anonymous"></script>
     <!-- Bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     <!-- Css link  -->
     <link rel="stylesheet" href="css/style.css">
 
     <title>Daily Star Portal</title>
 </head>
-<body class="container my-5">
+<body class="my-5">
     <!-- <h1>Daily Star</h1> -->
-    <header>
+    <header class="container">
         <!-- Top Header Start  -->
         <section>
-            <nav class="navbar navbar-light d-flex justify-content-between">
-                <div>
+            <nav class="navbar navbar-light mt-0 pt-0 d-flex justify-content-between">
+                <div class="header_left">
                     <a class="navbar-brand fw-bold" href="index.html">
                         <span class="bg-primary text-white px-3 py-2 rounded-3">Daily Star</span> 
                         <span class="text-primary"> Portal</span>
@@ -31,14 +35,59 @@
                     <img class="img-fluid" src="images/header_left_profile_pic.png" alt="">
                 </div>
             </nav>
-        </section><!-- Top Header End  -->
+        </section>
+        <!-- Top Header End  -->
         <hr>
         <!-- Navbar Menu Start -->
-        
+        <section>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="d-flex justify-content-between navbar-nav mx-auto">
+                            <li class="nav-item pe-5">
+                                <a id="home_id" class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="breaking_news_id" class="nav-link" aria-current="page" href="#">Breaking news</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="regular_news_id" class="nav-link" aria-current="page" href="#">Regular news</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="international_id" class="nav-link" aria-current="page" href="#">International news</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="sports_id" class="nav-link" aria-current="page" href="#">Sports</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="entertainment_id" class="nav-link" aria-current="page" href="#">Entertainment</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="culture_id" class="nav-link" aria-current="page" href="#">Culture</a>
+                            </li>
+                            <li class="nav-item px-4">
+                                <a id="arts_id" class="nav-link" aria-current="page" href="#">Arts</a>
+                            </li>
+                            <li class="nav-item ps-5">
+                                <a id="all_news_id" class="nav-link" aria-current="page" href="#">All news</a>
+                            </li>                                                                           
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
         <!-- Navbar Menu End -->
     </header>
+    
 
+    <footer>
 
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
