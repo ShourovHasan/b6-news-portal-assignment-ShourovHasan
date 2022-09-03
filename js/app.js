@@ -31,6 +31,12 @@ const displayNewsCategories = (categories, categoryName) => {
     }
 
     categories.forEach(category => {
+
+        // Show 250 characters from 
+        if ((category.details).length > 50) {
+            category.details = (category.details).slice(0, 250)+'...';
+        }
+
         const div = document.createElement('div');
         div.classList.add('card');
         div.classList.add('mb-3');
@@ -85,8 +91,9 @@ const loadNewsDetails = async (news_id) => {
     displayNewsDetails(data.data[0]);
 }
 const displayNewsDetails = newsInfo => {
-    console.log(newsInfo);
+    // console.log(newsInfo);
     const modalTitle = document.getElementById('newsDetailModalLabel');
+
     modalTitle.innerText = newsInfo.title;
 
     const newsDetails = document.getElementById('modal_Body');    
@@ -119,22 +126,7 @@ const displayNewsDetails = newsInfo => {
     `;
     toggleSpinner(false);
 }
-
-
-// const someFunction = (news_sort_details)=>{
-//     const para = document.getElementsByClassName("news_sort_details")[0];
-//     const text = para.innerHTML;
-//     console.log(text);
-//     // para.innerHTML = "";
-//     // const words = text.split(" ");
-//     // // if()
-//     // for (i = 0; i < 50; i++) {
-//     //     para.innerHTML += words[i] + " ";
-//     // }
-//     // para.innerHTML += "...";    
-// }
-
-
+// Loading Spinner 
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('spinner_control');
 
@@ -146,15 +138,7 @@ const toggleSpinner = isLoading => {
     }
 }
 
-
-
-
-// news Show from nav Menu 
-// document.getElementById('home_id').addEventListener('click', function (e) {
-//     toggleSpinner(true);
-//     const categoryName = e.target.innerText;    
-//     loadNewsCategories('08', categoryName);
-// })
+// Navbar Menu for show news 
 document.getElementById('breaking_news_id').addEventListener('click', function (e) {
     toggleSpinner(true);
     const categoryName = e.target.innerText; 
