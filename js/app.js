@@ -150,11 +150,11 @@ const toggleSpinner = isLoading => {
 
 
 // news Show from nav Menu 
-document.getElementById('home_id').addEventListener('click', function (e) {
-    toggleSpinner(true);
-    const categoryName = e.target.innerText;    
-    loadNewsCategories('08', categoryName);
-})
+// document.getElementById('home_id').addEventListener('click', function (e) {
+//     toggleSpinner(true);
+//     const categoryName = e.target.innerText;    
+//     loadNewsCategories('08', categoryName);
+// })
 document.getElementById('breaking_news_id').addEventListener('click', function (e) {
     toggleSpinner(true);
     const categoryName = e.target.innerText; 
@@ -195,5 +195,5 @@ document.getElementById('all_news_id').addEventListener('click', function (e) {
     const categoryName = e.target.innerText; 
     loadNewsCategories('08', categoryName);
 })
-// loadNewsCategories('08');
+loadNewsCategories('08', 'Home');
 
