@@ -23,7 +23,7 @@ const displayNewsCategories = (categories, categoryName) => {
     // countCategories.innerHTML = '';
     if (categories.length > 0) {
         countCategories.innerHTML = `
-        <h2>${categories.length} items found for category ${categoryName}</h2>`;       
+        <h2>${categories.length} items found for category ${categoryName}</h2>`;
     }
     else {
         countCategories.innerHTML = `
@@ -34,7 +34,7 @@ const displayNewsCategories = (categories, categoryName) => {
 
         // Show 250 characters from 
         if ((category.details).length > 50) {
-            category.details = (category.details).slice(0, 250)+'...';
+            category.details = (category.details).slice(0, 250) + '...';
         }
 
         const div = document.createElement('div');
@@ -51,7 +51,7 @@ const displayNewsCategories = (categories, categoryName) => {
                     <p class="card-text">${category.details ? category.details : 'News Details Not Found'}</p>
                     <div class="d-flex justify-content-between">
                         <div class="bloger_info d-flex" style="width:35%">
-                            <div class="my-auto w-50">
+                            <div class="my-auto w-25">
                                 <img class="w-100 rounded-circle d-inline-block me-0 pe-0" src="${category.author.img ? category.author.img : 'Author Image Not Found'}" alt="">
                             </div>
                             <div class="ps-2 my-auto">
@@ -96,7 +96,7 @@ const displayNewsDetails = newsInfo => {
 
     modalTitle.innerText = newsInfo.title;
 
-    const newsDetails = document.getElementById('modal_Body');    
+    const newsDetails = document.getElementById('modal_Body');
     newsDetails.innerHTML = `
         <div class="card-body">     
             <img src="${newsInfo.image_url ? newsInfo.image_url : 'Image Not Found'}" class="img-fluid h-100 rounded  p-3" alt="...">       
@@ -141,42 +141,42 @@ const toggleSpinner = isLoading => {
 // Navbar Menu for show news 
 document.getElementById('breaking_news_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('01', categoryName);
 })
 document.getElementById('regular_news_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('02', categoryName);
 })
 document.getElementById('international_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('03', categoryName);
 })
 document.getElementById('sports_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('04', categoryName);
 })
 document.getElementById('entertainment_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('05', categoryName);
 })
 document.getElementById('culture_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('06', categoryName);
 })
-document.getElementById('arts_id').addEventListener('click', function(e){
+document.getElementById('arts_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('07', categoryName);
 })
 document.getElementById('all_news_id').addEventListener('click', function (e) {
     toggleSpinner(true);
-    const categoryName = e.target.innerText; 
+    const categoryName = e.target.innerText;
     loadNewsCategories('08', categoryName);
 })
 loadNewsCategories('08', 'Home');
